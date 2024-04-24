@@ -47,14 +47,14 @@ template_list.append(cv2.imread('template_6.png')) #Load the image
 #Open a webcam streaming
 video_capture=cv2.VideoCapture(0) #Open the webcam
 #Reduce the size of the frame to 320x240
-video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 320)
-video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 240)
+video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 #Get the webcam resolution
-cam_w = int(video_capture.get(cv2.cv.CV_CAP_PROP_FRAME_WIDTH))
-cam_h = int(video_capture.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT))
+cam_w = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
+cam_h = int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
 #Declare an offset that is used to define the distance
 #from the webcam center of the two red lines
-offset = int(cam_h / 7)
+offset = int(cam_h / 5)
 
 #Declaring the binary mask analyser object
 my_mask_analyser = BinaryMaskAnalyser()
@@ -109,7 +109,7 @@ while(True):
             print("Enabling capture...") 
             ENABLE_CAPTURE=True
 
-#Close the keyboard ojbect
+#Close the keyboard object
 ui.close()
 #Release the camera
 video_capture.release()
